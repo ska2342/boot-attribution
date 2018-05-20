@@ -4,13 +4,50 @@
 ;; All comparisons will be done case insensitively at runtime. 
 {"Apache-2.0"
  ["Apache 2"
+  "Apache v2"
   "Apache 2.0 License"
   "Apache License"
   "Apache License 2.0"
   "Apache License Version 2.0"
+  "Apache License Version 2"
   "Apache License, Version 2.0"
   "Apache Software License - Version 2.0"
+  "Apache Software License, Version 2.0"
+  "Apache Public License 2.0"
+  "The Apache Software License - Version 2.0"
+  "The Apache Software License, Version 2.0"
+  "The Apache Public License 2.0"
+  "Apache License V2.0"
   "ASF 2.0"]
+
+
+ "CDDL 1.0"
+ ["Common Development and Distribution License"
+  "Common Development and Distribution License 1.0)"
+  "Common Development and Distribution License v1.0"
+  "Common Development and Distribution License Version 1.0"
+  "Common Development and Distribution License (CDDL) 1.0"
+  "Common Development and Distribution License (CDDL) v1.0"
+  "Common Development and Distribution License (CDDL) Version 1.0"
+  "CDDL 1.0 license"
+  "CDDL, v1.0"
+  "CDDL 1.0"
+  "CDDL"]
+
+ "CDDL 1.1"
+ ["Common Development and Distribution License 1.1)"
+  "Common Development and Distribution License v1.1"
+  "Common Development and Distribution License Version 1.1"
+  "Common Development and Distribution License (CDDL) 1.1"
+  "Common Development and Distribution License (CDDL) v1.1"
+  "Common Development and Distribution License (CDDL) Version 1.1"
+  "CDDL 1.1 license"
+  "CDDL, v1.1"
+  "CDDL 1.1"]
+
+ "CPL-1.0"
+ ["Common Public License"
+  "Common Public License Version 1.0"]
 
  "EPL-1.0"
  ["Eclipse Public License"
@@ -19,10 +56,31 @@
   "Eclipse Public License - v 1.0"
   "EPL"]
 
+ ;; Just LGPL is a simplification for now.
+ ;; SPDX has many variations on this.
  "LGPL"
  ["GNU Lesser General Public Licence"
   "GNU Lesser General Public License"
   "GNU Lesser General Public License, Version 2.1"
   "GNU Lesser Public License"
   "GNU Library or Lesser General Public License"]
+
+ "MPL-1.0"
+ ["Mozilla Public License"
+  "Mozilla Public License 1.0"
+  "Mozilla Public License 1.0 (MPL 1.0)"
+  "Mozilla Public License Version 1.0"
+  "Mozilla Public License, Version 1.0"]
+
+ "MPL-1.1"
+ ["Mozilla Public License 1.1"
+  "Mozilla Public License 1.1 (MPL 1.1)"
+  "Mozilla Public License Version 1.1"
+  "Mozilla Public License, Version 1.1"]
+
+ "MPL-2.0"
+ ["Mozilla Public License 2.0"
+  "Mozilla Public License 2.0 (MPL 2.0)"
+  "Mozilla Public License Version 2.0"
+  "Mozilla Public License, Version 2.0"]
  }
