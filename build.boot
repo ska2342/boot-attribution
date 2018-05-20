@@ -16,7 +16,7 @@
 ;; Now, boot
 (set-env!
  :source-paths #{"src/"}
- ;; resource-paths
+ :resource-paths #{"resources/"}
  :dependencies (into runtime-deps test-deps)
  )
 

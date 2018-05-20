@@ -1,0 +1,28 @@
+;; Keys are taken from SPDX. Values are sets or vactors of variations
+;; found in real-world examples.
+
+;; All comparisons will be done case insensitively at runtime. 
+{"Apache-2.0"
+ ["Apache 2"
+  "Apache 2.0 License"
+  "Apache License"
+  "Apache License 2.0"
+  "Apache License Version 2.0"
+  "Apache License, Version 2.0"
+  "Apache Software License - Version 2.0"
+  "ASF 2.0"]
+
+ "EPL-1.0"
+ ["Eclipse Public License"
+  "Eclipse Public License 1.0"
+  "Eclipse Public License v1.0"
+  "Eclipse Public License - v 1.0"
+  "EPL"]
+
+ "LGPL"
+ ["GNU Lesser General Public Licence"
+  "GNU Lesser General Public License"
+  "GNU Lesser General Public License, Version 2.1"
+  "GNU Lesser Public License"
+  "GNU Library or Lesser General Public License"]
+ }

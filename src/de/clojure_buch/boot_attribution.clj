@@ -1,6 +1,8 @@
 (ns de.clojure-buch.boot-attribution
   {:boot/export-tasks true}
   (:require [clojure.java.io :as io]
+            [clojure.edn     :as edn]
+            [clojure.string  :as string]
             [clojure.xml     :as xml]
             [boot.core       :as boot :refer [deftask]]
             [boot.pod        :as pod]
@@ -52,19 +54,21 @@
        (catch Throwable _ nil)))
 
 
-(defn- library-attributions [the-dep strategies]
+(defn- library-attributions
+  [the-dep strategies lnormalizer]
   (let [[lib vers jar] (unfold-dep the-dep)]
     (util/info "Resolving POM for %s %s %s\n" lib vers jar)
     (some (fn resolve-license-for [strategy]
-            (resolve-licenses strategy jar))
+            (->> jar
+                 (resolve-licenses strategy)
+                 (map lnormalizer)))
           strategies)))
 
 ;; FIXME: want more strategies:
 ;; - find a LICENSE(.txt) or similar
 ;; - Grep in a README(.md,txt,org)
 (def ^:private license-strategies
-  [::pom
-   ::unknown])
+  [::pom ::unknown])
 
 
 ;; FIXME
@@ -72,10 +76,10 @@
   (let [[lib vers jar] (unfold-dep the-dep)]
     "NYI"))
 
-(defn all-attributions [deps]
+(defn all-attributions [deps strategies lnormalizer]
   (for [dep deps]
     {:dep dep
-     :licenses (library-attributions dep license-strategies)
+     :licenses (library-attributions dep strategies lnormalizer)
      :copyrights (copyright-attributions dep)}))
 
   
@@ -83,10 +87,29 @@
   (pod/resolve-dependencies env))
 
 
+(defn- make-license-normalizer [norms]
+  (let [lookup
+        (into {}
+              (for [[lic alt-names] norms
+                    an alt-names]
+                {(string/lower-case an) lic}))]
+    (fn license-normalizer [license]
+      (if-let [normalized
+               (lookup (string/lower-case license))]
+        normalized
+        license))))
+
+(defn- license-normalizer []
+  (->
+   (io/resource "license-normalizations.edn")
+   slurp
+   edn/read-string
+   make-license-normalizer))
 
 (defn repl-test []
-  (-> (all-deps (boot/get-env))
-      all-attributions))
+  (all-attributions (all-deps (boot/get-env))
+                    license-strategies
+                    (license-normalizer)))
   
 
 
