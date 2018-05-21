@@ -17,13 +17,21 @@
 ;; Now, boot
 (set-env!
  :source-paths #{"src/"}
- :resource-paths #{"resources/"}
+ :resource-paths #{"resources/" "src/"}
  :dependencies (into runtime-deps test-deps)
  )
 
 (task-options!
  pom (select-keys PROJECT [:project :version :description :license])
+ jar {:project (:project PROJECT)}
+ sift {:include #{#"~$"} :invert true}
  )
 
-
-
+(require '[de.clojure-buch.boot-attribution :as ourself])
+(deftask build []
+  (comp
+    (pom)
+;    (uber)
+    (sift)
+    (jar)
+    (target)))
