@@ -1,10 +1,11 @@
 ;; -*- mode: clojure -*-
+(def +version+ "2018-05")
 (def PROJECT
-  {:project 'de.clojure-buch.boot-attribution
-   :version "2018-05"
+  {:project 'de.clojure-buch/boot-attribution
+   :version +version+
    ;; :build (or (env/env :build-number) "unknown")
-   :license {:name "Eclipse Public License"
-             :url "http://www.eclipse.org/legal/epl-v10.html"}})
+   :license {"Eclipse Public License"
+             "http://www.eclipse.org/legal/epl-v10.html"}})
 
 
 (def runtime-deps
