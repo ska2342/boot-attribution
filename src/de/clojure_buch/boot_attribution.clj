@@ -112,4 +112,23 @@
                     (license-normalizer)))
   
 
+(defn attributions-report []
+  (str
+   "Third Party Report\n"
+   (apply
+    str
+    (for [a (all-attributions (all-deps (boot/get-env))
+                              license-strategies
+                              (license-normalizer))]
+      (str a \newline)))))
 
+(deftask create-attributions
+  "Creates a file with all attributions."
+  []
+  (boot/with-pre-wrap fileset
+    (util/info "Creating attributions")
+    (let [d (boot/tmp-dir!)]
+      (spit (io/file d "credits.txt")
+            (attributions-report))
+      (-> (boot/add-resource fileset d)
+          (boot/commit!)))))
