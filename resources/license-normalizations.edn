@@ -4,6 +4,7 @@
 ;; All comparisons will be done case insensitively at runtime. 
 {"Apache-2.0"
  ["Apache 2"
+  "Apache 2.0"
   "Apache v2"
   "Apache 2.0 License"
   "Apache License"
@@ -83,4 +84,9 @@
   "Mozilla Public License 2.0 (MPL 2.0)"
   "Mozilla Public License Version 2.0"
   "Mozilla Public License, Version 2.0"]
+
+ "MIT"
+ ["MIT"
+  "The MIT License"
+  "MIT License"]
  }
