@@ -4,10 +4,7 @@ A boot-clj plug-in to create correct attribution
 
 # Project Status
 
-This is just some early code. I mean to turn this into a working
-library. Only time will tell.
-
-PRs welcome
+**This is dead** I moved on to use Clojurephant, the Clojure plug-in for Gradle. In Gradle, these issues have already been solved.
 
 # Project Goals
 
